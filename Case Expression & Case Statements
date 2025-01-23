@@ -11,4 +11,10 @@ END;
 
 Example code of Case Expression:
 
-select 
+select customer_id,
+CASE amount
+  WHEN 500 THEN 'Prime Customer'
+  WHEN 100 THEN 'Plus Customer'
+  ELSE 'Regular Customer'
+END AS CustomerStatus
+from Payment ;
