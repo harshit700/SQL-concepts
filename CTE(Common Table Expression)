@@ -1,0 +1,26 @@
+Today we shall discuss Common Table Expression. Let's see how it works:
+
+1. A CTE(Common Table Expression) is a temporary named result set created from a simple select statement that can be used in a subsequent select statement.
+2. We define CTEs by adding a WITH clause directly before select, insert , update, delete or merge statements.
+3. The WITH clause can include one or more CTEs seperated by commas.
+
+Syntax:
+
+// CTE syntax
+with mycte AS (
+select a, b, c from table1
+)
+
+select a , c from mycte ; // Main query
+
+Example of Common Table Expression:
+
+WITH my_cte AS (
+  select * , avg(amount) over (order by p.customer_id) As "Average_Price",
+  count(address_id) over (order by c.customer_id) As "Count" 
+  from payment as p
+  INNER JOIN customer as c
+  on p.customer_id=c.customer_id
+)
+
+select first_name, last_name from my_cte ;
