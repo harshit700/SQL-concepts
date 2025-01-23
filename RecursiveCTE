@@ -1,0 +1,15 @@
+A recursive CTE references itself. It returns the result subset, then it repeatedly(recursively) references itself, and stops when it returns all the results.
+A recursive CTE has 3 elements:
+  a. Non-recursive term: It's a CTE query definition that forms the base result set of the CTE structure. 
+  b. Recursive term: One or more CTE query definitions joined with non-recursive term using UNION or UNION ALL operator.
+  c. Termination Check: the recursion stops when no rows are returned from previous iteration.
+
+Syntax:
+
+WITH RECURSIVE cte_name AS (
+   CTE_query_definition       -- non-recursive term
+   UNION ALL
+   recursive_query_definition  -- recursive term
+)
+
+select * from cte_name ;
