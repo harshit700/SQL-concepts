@@ -13,3 +13,39 @@ WITH RECURSIVE cte_name AS (
 )
 
 select * from cte_name ;
+
+// Example of Recursive CTE
+
+WITH RECURSIVE my_CTE AS (
+  SELECT 1 as n
+  UNION ALL
+  SELECT n+1 from my_CTE where n < 3
+)
+
+select * from my_CTE ;
+
+// Practical Example
+We have employee table having column (emp_id, emp_name, manager_id).
+
+WITH RECURSIVE EmpCTE AS (
+  -- Anchor query
+  select emp_id, emp_name, manager_id 
+  from employees where employee_id = 7
+
+  UNION ALL
+
+  select e.emp_id, e.emp_name, e.manager_id
+  from employees e JOIN EmpCTE on e.emp_id = EmpCTE.manager_id
+
+
+)
+
+select * from EmpCTE ;
+
+
+
+
+
+
+
+
