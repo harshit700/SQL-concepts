@@ -1,0 +1,14 @@
+Today we shall learn Case Statement/ Case Expressions in SQL programming.
+
+CASE EXPRESSION Syntax:
+
+CASE Expression
+ WHEN value1 THEN result1
+ WHEN value2 THEN result2
+ WHEN valueN THEN resultN
+ ELSE other_result
+END;
+
+Example code of Case Expression:
+
+select 
