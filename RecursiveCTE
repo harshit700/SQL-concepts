@@ -42,6 +42,9 @@ WITH RECURSIVE EmpCTE AS (
 
 select * from EmpCTE ;
 
+Applications of Recursive CTE:
+1. Finding bosses in the hierarchical level of organization.
+2. Finding ancestors in a family and routes in the city.
 
 
 
