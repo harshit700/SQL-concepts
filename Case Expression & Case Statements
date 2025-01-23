@@ -18,3 +18,24 @@ CASE amount
   ELSE 'Regular Customer'
 END AS CustomerStatus
 from Payment ;
+
+CASE STATEMENT SYNTAX:
+
+CASE 
+ WHEN condition1 THEN result1
+ WHEN condition2 THEN result2
+ WHEN condition3 THEN result3
+ ELSE other_result
+END;
+
+Example code for CASE statment syntax:
+
+select customer_id, amount,
+CASE
+  WHEN amount>100 THEN 'Expensive Product'
+  WHEN amount=100 THEN 'Moderate Product'
+  ELSE 'Inexpensive Product'
+END AS product_status
+from Payment ;
+ 
+ 
